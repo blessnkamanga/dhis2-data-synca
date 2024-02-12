@@ -18,7 +18,7 @@ var target_password = ""
 //dataSet
 
 //get current date
- days = 1
+ days = 7
 // new Date object
 let date_ob = new Date();
 
@@ -48,7 +48,7 @@ console.log(period_past)+""
 
 //period="2021-10-18"
 
-var completedataset = source_baseurl+"/api/completeDataSetRegistrations.json?dataSet=waoQ016uOz1&startDate=2022-10-17&endDate=2022-10-23&orgUnit=XtF7Xzv3edv&children=true"
+var completedataset = source_baseurl+"/api/completeDataSetRegistrations.json?dataSet=waoQ016uOz1&startDate="+period_past+"&endDate="+period+"&orgUnit=XtF7Xzv3edv&children=true"
 //var completedataset = source_baseurl+"/api/organisationUnits"
 
 
@@ -63,6 +63,7 @@ auth: {
   .then(res => {
     //console.log(res.data)
     var generated_payload= res.data
+    console.log(generated_payload)
     for (var i = 0; i < generated_payload.completeDataSetRegistrations.length; i++) {
       //get the variables
       var dataset = generated_payload["completeDataSetRegistrations"][i]["dataSet"]
@@ -129,7 +130,7 @@ auth: {
       //end of get the datavalues
 
        //generated_payload["dataValues"][i]["dataElement"] = new_dataelement
-      //end of change data element
+      //end of change data element 
 
   }
 
