@@ -3,8 +3,8 @@ const data_sync = require('./hmis_data_sync')
 
 
 var baseurl ="http://41.87.6.40:8080/hmistest"
-var username = "yambansokausiwa"
-var password = "Bscinf-07"
+var username = ""
+var password = ""
 
 const dataSet = ['bx25idVxi1S']
 

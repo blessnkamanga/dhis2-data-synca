@@ -8,8 +8,8 @@ function  postMohData(dataSet,orgUnit,startDate,endDate){
 
 //source URLs
 var source_baseurl ="http://41.87.6.40:8080/hmistest"
-var source_username = "yambansokausiwa"
-var source_password = "Bscinf-07"
+var source_username = ""
+var source_password = ""
 
 //target URL
 var target_baseurl ="http://41.87.6.59:8080/2.40"
