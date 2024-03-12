@@ -6,24 +6,27 @@ var XLSX = require('xlsx')
 
 
 //source URLs
-var source_baseurl ="http://41.87.6.40:8080/hmistest"
-var source_username = "blessings"
-var source_password = "Training10@"
+var source_baseurl =""
+var source_username = ""
+var source_password = ""
 
 //target URLs
-var target_baseurl ="http://41.87.6.53:8080/2.40"
-var target_username = "blessings"
-var target_password = "Training10@"
+var target_baseurl =""
+var target_username = ""
+var target_password = ""
 
 //specify dates
 var startDate="2023-11-01"
 var endDate="2023-11-30"
-var dataSet="xKmkoAZLEGU"
+var dataSet=""
 
 
 function  postMohData(source_baseurl,source_username,source_password,target_baseurl,target_username,target_password,startDate,endDate,dataSet){
   
      //period="2021-10-18"
+
+     //get organisation units
+
 
 var completedataset = source_baseurl+"/api/completeDataSetRegistrations.json?dataSet="+dataSet+"&startDate="+startDate+"&endDate="+endDate+"&orgUnit=XtF7Xzv3edv&children=true"
 //var completedataset = source_baseurl+"/api/organisationUnits"
