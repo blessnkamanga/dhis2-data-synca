@@ -33,7 +33,7 @@ await axios.get(endPoint,{
         
         for(let i = 0 ; i < dataSetOu.length; i++){
             for(let x = 0; x < dataDates.length; x++){
-                data_sync(dataSet_id,dataSetOu[i].id,dataDates[x].startDate,dataDates[x].endDate)
+                data_sync(dataSet[q],dataSetOu[i].id,dataDates[x].startDate,dataDates[x].endDate)
             }            
         }
     }).catch(e => console.log(e))
