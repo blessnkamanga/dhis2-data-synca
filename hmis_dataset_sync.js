@@ -6,7 +6,7 @@ var baseurl ="http://41.87.6.40:8080/hmistest"
 var username = "yambansokausiwa"
 var password = "Bscinf-07"
 
-const dataSet_id = 'bx25idVxi1S'
+const dataSet = ['bx25idVxi1S']
 
 const dataDates = [
     { startDate: "2023-09-01", endDate: "2023-09-30" },
@@ -16,9 +16,12 @@ const dataDates = [
     { startDate: "2024-01-01", endDate: "2024-01-31" },
     { startDate: "2024-02-01", endDate: "2024-02-29" },
   ];
-const endPoint = `${baseurl}/api/29/dataSets/${dataSet_id}.json`
+
 //fetching dataSet 
+
 async function getDataSet(){
+for(let q = 0; q < dataSet.length; q++){
+    const endPoint = `${baseurl}/api/29/dataSets/${dataSet[q]}.json`
 await axios.get(endPoint,{
     auth: {
         username: username,
@@ -35,6 +38,6 @@ await axios.get(endPoint,{
         }
     }).catch(e => console.log(e))
 }
-
+}
 getDataSet()
 //data_sync('bx25idVxi1S','W2hyI8SrvoG')
