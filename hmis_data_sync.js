@@ -4,7 +4,7 @@ const fs = require('fs')
 const axios = require('axios')
 var XLSX = require('xlsx')
 
-function  postMohData(dataSet,orgUnit){
+function  postMohData(dataSet,orgUnit,startDate,endDate){
 
 //source URLs
 var source_baseurl ="http://41.87.6.40:8080/hmistest"
@@ -16,9 +16,6 @@ var target_baseurl ="http://41.87.6.59:8080/2.40"
 var target_username = "administrator"
 var target_password = "Testing@2024"
 
-//specify dates
-var startDate="2023-11-01"
-var endDate="2023-11-30"
 
 
 
