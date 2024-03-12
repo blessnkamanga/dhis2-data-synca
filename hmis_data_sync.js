@@ -4,31 +4,33 @@ const fs = require('fs')
 const axios = require('axios')
 var XLSX = require('xlsx')
 
+function  postMohData(dataSet,orgUnit){
 
 //source URLs
-var source_baseurl =""
-var source_username = ""
-var source_password = ""
+var source_baseurl ="http://41.87.6.40:8080/hmistest"
+var source_username = "yambansokausiwa"
+var source_password = "Bscinf-07"
 
-//target URLs
-var target_baseurl =""
-var target_username = ""
-var target_password = ""
+//target URL
+var target_baseurl ="http://41.87.6.59:8080/2.40"
+var target_username = "administrator"
+var target_password = "Testing@2024"
 
 //specify dates
 var startDate="2023-11-01"
 var endDate="2023-11-30"
-var dataSet=""
 
 
-function  postMohData(source_baseurl,source_username,source_password,target_baseurl,target_username,target_password,startDate,endDate,dataSet){
+
+
   
+
      //period="2021-10-18"
 
      //get organisation units
 
 
-var completedataset = source_baseurl+"/api/completeDataSetRegistrations.json?dataSet="+dataSet+"&startDate="+startDate+"&endDate="+endDate+"&orgUnit=XtF7Xzv3edv&children=true"
+var completedataset = source_baseurl+"/api/completeDataSetRegistrations.json?dataSet="+dataSet+"&startDate="+startDate+"&endDate="+endDate+"&orgUnit="+orgUnit+"&children=true"
 //var completedataset = source_baseurl+"/api/organisationUnits"
 
 
@@ -43,8 +45,10 @@ auth: {
   .then(res => {
     //console.log(res.data)
     var generated_payload= res.data
-    //console.log(generated_payload)
-    
+    //checking if a completed form is available for the organisation unit
+    if(generated_payload.completeDataSetRegistrations === undefined){
+      console.log(`Completed dataset not found for OU : ${orgUnit} `)
+    }else{
     for (var i = 0; i < generated_payload.completeDataSetRegistrations.length; i++) {
 
       try{
@@ -83,6 +87,7 @@ auth: {
 
          //end of change the attribute option combo
           var target_datavaluesurl = target_baseurl+"/api/dataValueSets"
+          
          axios
            .post(target_datavaluesurl,data_payload,{
          auth: {
@@ -93,7 +98,7 @@ auth: {
            .then(res => {
 
          //echo the results
-         console.log(res)
+         console.log('posted')
 
 
            })
@@ -120,6 +125,7 @@ auth: {
       
 
     }
+    }
 
 
   })
@@ -130,4 +136,5 @@ auth: {
   
   
 }
-postMohData(source_baseurl,source_username,source_password,target_baseurl,target_username,target_password,startDate,endDate,dataSet)
+module.exports = postMohData
+
