@@ -2,5 +2,11 @@
   "name": "ohsp_data_sync",
   "lockfileVersion": 2,
   "requires": true,
-  "packages": {}
+  "packages": {},
+  "dependencies": {
+    "axios": "^1.6.7",
+    "json2xls": "^0.1.2",
+    "lodash": "^4.17.21",
+    "xlsx": "^0.18.5"
+  }
 }
